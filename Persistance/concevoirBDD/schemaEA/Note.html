@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Schéma entité association 1</title>
+</head>
+
+<body>
+    <h1>Le cas Note</h1>
+    <h3>Objectif</h3>
+    <p>
+        Dans le but de construire une base de données, la conception du modèle
+        entité-association suivi du modèle logique de données est une étape se
+        situant entre la « récolte » des informations constituant le dictionnaire de
+        données et le modèle physique de données propre à un SGBD propriétaire.</p>
+       <h3>But de la réalisation : </h3>
+       <p> Réaliser un modèle entité-association (modèle conceptuel de données)</p>
+       <h3> Techniques abordées :</h3>
+       <p>Le modèle entité-association :
+        • Rechercher les entités naturelles
+        • Attacher les propriétés appartenant à ces entités
+        • Déterminer les propriétés identifiantes
+        • Relier les entités par des associations
+        • Attacher les propriétés appartenant aux associations
+        • Déterminer les cardinalités des associations </P>
+        <h3>Travail à réaliser :</h3>
+        <p>Domaine de l’étude : gestion des plannings et notation des élèves dans un
+        établissement scolaire
+        Soit la liste des données recensées présentées par ordre alphabétique :
+         Matière enseignée (30)
+         Nombre d’heures (2,0)
+         Nom de la classe (30)
+         Nom de l’élève (20)
+         Nom du professeur (30)
+         Note (2,2)
+         Numéro de salle (2,0)
+         Prénom de l’élève (20)</p>
+    
+      
+            <h3>  Règles de gestion : </h3>
+            <p>
+         A chaque classe est attribuée une et une salle de cours
+         Dans une salle de cours ne s’installe qu’une seule classe
+         Chaque matière n’est enseignée que par un et un seul professeur
+         Un professeur peut enseigner plusieurs matières
+         Pour chaque classe et chaque matière est défini un nombre fixe d’heures de
+        cours
+         A chaque élève est attribuée une seule note par matiere.
+    </p>
+    
+    <p>On commence par donner forme au dictionaire de donnée.</p>
+    
+    <table>
+        <tbody>
+            <tr>
+                <td>Code</td>
+                <td>Libellé</td>
+                <td>Type</td>
+                <td>Contraintes</td>
+                <td>Règle de calcul</td>
+            <tr>
+                <td>mat_ens</td>
+                <td> matiere enseignée</td>
+                <td>varchar (255)</td>
+                <td></td>
+                <td></td>
+            </tr>
+           
+            <tr>
+                <td>mat_id</td>
+                <td> identifiant de a matiere</td>
+                <td>int</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>cla_nom</td>
+                <td> nom de la classe</td>
+                <td>varchar (255)</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>cla_id</td>
+                <td> identifiant de la classe</td>
+                <td>int</td>
+                <td></td>
+                <td></td>
+            </tr><tr>
+                <td>nbr_hre</td>
+                <td>nombre d'heure  </td>
+                <td>int</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>cla_sal</td>
+                <td> numero de salle de la classe</td>
+                <td>varchar(255)</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>pro_nom</td>
+                <td> nom du professeur</td>
+                <td>varchar(255)</td>
+                <td></td>
+                <td></td>
+            </tr><tr>
+                <td>pro_id</td>
+                <td>identifiant du profeesseur </td>
+                <td>int</td>
+                <td></td>
+                <td></td>
+            </tr><tr>
+                <td>ele_nom</td>
+                <td> nom de l'eleve</td>
+                <td>varcchar (255)</td>
+                <td></td>
+                <td></td>
+            </tr><tr>
+                <td>ele_id</td>
+                <td>identifiant eleve </td>
+                <td>int</td>
+                <td></td>
+                <td></td>
+            </tr><tr>
+                <td>ele_pre</td>
+                <td>prenom de l'eleve </td>
+                <td>varchar (255)</td>
+                <td></td>
+                <td></td>
+            </tr><tr>
+                <td>not</td>
+                <td>note de l'eleve </td>
+                <td>decimal (2,2)</td>
+                <td></td>
+                <td></td>
+            </tr>
+    
+    

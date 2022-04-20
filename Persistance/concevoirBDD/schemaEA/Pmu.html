@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Schéma entité association 3</title>
+</head>
+
+<body>
+    <h1>Pmu</h1>
+    <h3>Contexte</h3>
+    <p>
+        Les règles de gestion sont les suivantes :
+        • un cheval est identifié par ses caractéristiques de naissance :
+        • un numéro d'enregistrement auprès de la société des courses,
+        • une date,
+        • une mère toujours identifiée,
+        • une race,
+        • une couleur,
+        • un sexe,
+        • un lieu de naissance
+        • un cheval est la propriété, à une date donnée, d'un propriétaire ou d'un ensemble de
+        propriétaires regroupés en société.
+        • un cheval est entraîné, à une date donnée, par un entraîneur qui peut lui-même être
+        propriétaire.
+        • le propriétaire (ou l'entraîneur) est identifié par un numéro, une adresse (rue, ville, code
+        postal).
+        • un cheval est suivi par un vétérinaire, chargé à des dates données d'établir ses
+        vaccinations</p>
+        <h3>Travail à faire :</h3>
+        <p>Concevoir et réaliser le Modèle conceptuel des données à l’aide de votre outil de conception
+            préféré.</p>
+<p>On commence par etablir un dictionnaire de donnée complet</p>
+
+<table>
+    <tbody>
+        <tr>
+            <td>Code</td>
+            <td>Libellé</td>
+            <td>Type</td>
+            <td>Contraintes</td>
+            <td>Règle de calcul</td>
+        <tr>
+            <td>che_id</td>
+            <td> identifiant du cheval</td>
+            <td>int</td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>che_nom </td>
+            <td> nom du cheval</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>che_enr</td>
+            <td> numero d'enregistrement aupres de la société des courses</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr> 
+        <tr>
+            <td>che_nai</td>
+            <td>date de naissance</td>
+            <td>date</td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>che_rac</td>
+            <td> race du cheval</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>che_cou</td>
+            <td>couleur du cheval </td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>che_sex</td>
+            <td> sexe du cheval</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>che_lie_nai</td>
+            <td> lieu de naissance du cheval</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>che_mer_id</td>
+            <td> identifiant de la mere du cheval</td>
+            <td>int</td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>pro_id</td>
+            <td> identifiant du propriétaire</td>
+            <td>int</td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>pro_nom</td>
+            <td> nom du propritaire</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>pro_soc</td>
+            <td>nom de la société du propriétaire </td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>pro_adr</td>
+            <td>adresse du proprietaire ( numero et rue)</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+           
+        </tr>
+        <tr>
+            <td>pro_vil</td>
+            <td>ville du proprietaire</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr><tr>
+            <td>pro_cp</td>
+            <td>code postal du proprietaire</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr><tr>
+            <td>ent_id</td>
+            <td>identifiant de l'entraineur</td>
+            <td>int</td>
+            <td></td>
+            <td></td>
+        </tr><tr>
+            <td>ent_dat</td>
+            <td>date entrainement</td>
+            <td>date</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>ent_adr</td>
+            <td>adresse du entrainement ( numero et rue)</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+           
+        </tr>
+        <tr>
+            <td>ent_vil</td>
+            <td>ville du entrainement</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr><tr>
+            <td>ent_cp</td>
+            <td>code postal du entrainement</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr><tr>
+        <tr>
+            <td>vet_nom</td>
+            <td>nom du veterinaire</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr><tr>
+            <td>vac_dat</td>
+            <td>date de vaccination</td>
+            <td>date</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>dat_ach</td>
+            <td>date d'achat du cheval</td>
+            <td>date</td>
+            <td></td>
+            <td></td>
+        </tr>
