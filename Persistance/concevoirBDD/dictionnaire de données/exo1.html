@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>dictionnaire de données</title>
+</head>
+
+<body>
+    <h1>Exo1</h1>
+    <p>
+        Une région voyant son activité touristique grandir, souhaite mettre en place une
+        structure permettant de suivre l'état de ses plages.
+        Dans un premier temps, elle souhaite connaître toutes ses plages :
+        • chaque plage appartient à une ville
+        • pour une plage, on connaîtra :
+        • sa longueur en km
+        • la nature du terrain : sable fin, rochers, galets, ... sachant qu'il peut y avoir des
+        plages avec sable et rochers
+        Le suivi se fera par département (uniquement les départements de la région).
+        Un responsable région sera nommé : on en connaitra son nom et son prénom.
+        Une ville est identifiée par son code postal et le nombre de touristes annuel qu'elle
+        reçoit, doit être connu.
+        Travail à faire :
+        1. Réaliser le dictionnaire des données.
+        2. Vérifier le dictionnaire obtenu avec le corrigé proposé</p>
+
+
+    <table>
+        <tbody>
+            <tr>
+                <td>Code</td>
+                <td>Libellé</td>
+                <td>Type</td>
+                
+            <tr>
+                <td>nomPlage</td>
+                <td> nom de la Plage</td>
+                <td>VARCHAR(50)</td>
+               
+            </tr>
+            <tr>
+                <td>IDPlage</td>
+                <td> nom de la Plage</td>
+                <td>VARCHAR(50)</td>
+                
+            </tr>
+            <tr>
+                <td>ville</td>
+                <td>ville </td>
+                <td>VARCHAR (50)</td>
+                
+            </tr>
+            <tr>
+                <td>longKmPlage</td>
+                <td> longueur en km de la plage </td>
+                <td>decimal</td>
+                
+            </tr>
+            <tr>
+                <td>natureTerrain</td>
+                <td>nature du terrain </td>
+                <td>varchar(30)</td>
+               
+            </tr>
+            <tr>
+                <td>IDNatureTerrain</td>
+                <td>Identifiant nature du terrain </td>
+                <td>Int</td>
+                
+            </tr>
+            <tr>
+                <td>departement</td>
+                <td>département </td>
+                <td>VARCHAR (50)</td>
+                
+            </tr>
+            <tr>
+                <td>IDregion</td>
+                <td>identifiant région</td>
+                <td>VARCHAR (50)</td>
+                
+            </tr>
+            <tr>
+                <td>region</td>
+                <td>région</td>
+                <td>VARCHAR (50)</td>
+               
+            </tr>
+            <tr>
+                <td>idRespReg</td>
+                <td> identifiant responsable region</td>
+                <td>Varchar (20)</td>
+                
+            </tr>
+            <tr>
+                <td>nomRespReg</td>
+                <td> nom responsable region</td>
+                <td>Varchar (20)</td>
+                
+            </tr>
+            <tr>
+                <td>prenResReg</td>
+                <td> prenom responsable region</td>
+                <td>varchar (20)</td>
+               
+            </tr>
+            <tr>
+                <td>cPVille</td>
+                <td> code postal ville </td>
+                <td>INT</td>
+             
+            </tr>
+            <tr>
+                <td>nbTourAn</td>
+                <td> nombre de touriste annuel</td>
+                <td>int</td>
+              
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>
