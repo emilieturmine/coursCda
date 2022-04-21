@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Schéma entité association 3</title>
+</head>
+
+<body>
+    <h1>Pmu</h1>
+    <h3>Contexte</h3>
+    <p>
+        Les règles de gestion sont les suivantes :
+        • un cheval est identifié par ses caractéristiques de naissance :
+        • un numéro d'enregistrement auprès de la société des courses,
+        • une date,
+        • une mère toujours identifiée,
+        • une race,
+        • une couleur,
+        • un sexe,
+        • un lieu de naissance
+        • un cheval est la propriété, à une date donnée, d'un propriétaire ou d'un ensemble de
+        propriétaires regroupés en société.
+        • un cheval est entraîné, à une date donnée, par un entraîneur qui peut lui-même être
+        propriétaire.
+        • le propriétaire (ou l'entraîneur) est identifié par un numéro, une adresse (rue, ville, code
+        postal).
+        • un cheval est suivi par un vétérinaire, chargé à des dates données d'établir ses
+        vaccinations</p>
+        <h3>Travail à faire :</h3>
+        <p>Concevoir et réaliser le Modèle conceptuel des données à l’aide de votre outil de conception
+            préféré.</p>
+<p>On commence par etablir un dictionnaire de donnée complet</p>
+
+<table>
+    <tbody>
+        <tr>
+            <td>Code</td>
+            <td>Libellé</td>
+            <td>Type</td>
+            <td>Contraintes</td>
+            <td>Règle de calcul</td>
+        </tr>
+            <tr>
+            <td>che_id</td>
+            <td> identifiant du cheval</td>
+            <td>int</td>
+            <td></td>
+            <td></td>
+        </tr> 
+        <tr>
+            <td>che_nom </td>
+            <td> nom du cheval</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr> 
+        <tr>
+            <td>che_enr</td>
+            <td> numero d'enregistrement aupres de la société des courses</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr> 
+        <tr>
+            <td>che_nai</td>
+            <td>date de naissance</td>
+            <td>date</td>
+            <td></td>
+            <td></td>
+        </tr>
+         <tr>
+            <td>che_rac</td>
+            <td> race du cheval</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr> 
+        <tr>
+            <td>che_cou</td>
+            <td>couleur du cheval </td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr> 
+        <tr>
+            <td>che_sex</td>
+            <td> sexe du cheval</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr>
+         <tr>
+            <td>che_lie_nai</td>
+            <td> lieu de naissance du cheval</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr> 
+        <tr>
+            <td>che_mer_id</td>
+            <td> identifiant de la mere du cheval</td>
+            <td>int</td>
+            <td></td>
+            <td></td>
+        </tr> 
+        <tr>
+            <td>pro_id</td>
+            <td> identifiant du propriétaire</td>
+            <td>int</td>
+            <td></td>
+            <td></td>
+        </tr> 
+        
+        <tr>
+            <td>pro_nom</td>
+            <td> nom du propritaire</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr>
+         <tr>
+            <td>pro_soc</td>
+            <td>nom de la société du propriétaire </td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>pro_adr</td>
+            <td>adresse du proprietaire ( numero et rue)</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+           
+        </tr>
+        <tr>
+            <td>pro_vil</td>
+            <td>ville du proprietaire</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>pro_cp</td>
+            <td>code postal du proprietaire</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>ent_id</td>
+            <td>identifiant de l'entraineur</td>
+            <td>int</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>ent_dat</td>
+            <td>date entrainement</td>
+            <td>date</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>ent_adr</td>
+            <td>adresse du entrainement ( numero et rue)</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+           
+        </tr>
+        <tr>
+            <td>ent_vil</td>
+            <td>ville du entrainement</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>ent_cp</td>
+            <td>code postal du entrainement</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+        
+            <td>vet_nom</td>
+            <td>nom du veterinaire</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>vac_dat</td>
+            <td>date de vaccination</td>
+            <td>date</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>dat_ach</td>
+            <td>date d'achat du cheval</td>
+            <td>date</td>
+            <td></td>
+            <td></td>
+        </tr>
+            </tbody>
+        </table>
+
+        <h1> partie 2 </h1>
+      <p>  Pour le programme de COURSES de CHEVAUX en région parisienne d'autres éléments
+d'informations extraits de la phase de recueil sont les suivants :
+• il existe 6 champs de courses en région parisienne.
+• il est prévue au maximum deux réunions de courses par jour (après-midi et nocturne).
+• le nombre de chevaux par course est fixé au minimum à 5 chevaux et au maximum à 25
+chevaux.
+• Le programme des courses à établir concerne une semaine quelconque dans l'année.
+• Les informations nécessaires pour chaque course sont les suivantes :
+ª le numéro de la course,
+ª le nombre de partant,
+ª la distance,
+ª le prix pour le gagnant,
+ª l'heure de départ;
+ª le nom de l'épreuve,
+ª le type de course (trot, galop, obstacle).
+• Les informations nécessaires pour un partant sont les suivantes :
+ª le numéro du cheval dans la course,
+ª le nom du cheval,
+ª le nom du père et de la mère,
+ª le nom du propriétaire,
+ª le nom de l'entraîneur,
+ª le nom du jockey ou du driver,
+ª la place à la corde,
+ª le handicap (poids ou distance),
+ª les gains du cheval,
+• les couleurs du propriétaire.
+• Les éléments d'information suivants ont été fournis :
+ª Un jockey ou un driver peut monter plusieurs fois dans la même réunion de courses.
+ª Un cheval peut réaliser plusieurs courses dans la même semaine mais pas le même jour.
+ª Un cheval ne peut courir que dans un seul type de course
+ª Un propriétaire ou un entraîneur peut avoir plusieurs chevaux dans la même épreuve
+(écurie).</p>
+<h3>Travail à faire : </h3>
+<p>Compléter le Modèle conceptuel des données à l’aide de votre outil de conception préféré</p>
+<table>
+    <tbody>
+        <tr>
+            <td>Code</td>
+            <td>Libellé</td>
+            <td>Type</td>
+            <td>Contraintes</td>
+            <td>Règle de calcul</td>
+        </tr>
+            <tr>
+            <td>cha_id</td>
+            <td>identifiant du champs de course </td>
+            <td>int</td>
+            <td></td>
+            <td></td>
+        </tr> 
+        <tr>
+            <td>cha_nom</td>
+            <td>nom du champ de course </td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr>  
+         <tr>
+            <td>cha_adr</td>
+            <td> adresse du champ de course</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr>  
+         <tr>
+            <td>cha_cp</td>
+            <td>code postal du champ de course </td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr>   
+        <tr>
+            <td>cha_vil</td>
+            <td>ville du champ de course </td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr>  
+         <tr>
+            <td>cou_id</td>
+            <td>identifiant de la course </td>
+            <td>int</td>
+            <td></td>
+            <td></td>
+        </tr>   
+        <tr>
+            <td>cou_num</td>
+            <td>numero de la course </td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr>  
+         <tr>
+            <td>cou_nom_par</td>
+            <td>nombre de partant par course </td>
+            <td>int</td>
+            <td></td>
+            <td></td>
+        </tr>  
+         <tr>
+            <td>cou_dis</td>
+            <td>distance de la course </td>
+            <td>int</td>
+            <td></td>
+            <td></td>
+        </tr>   
+        <tr>
+            <td>cou_rec</td>
+            <td>recompense de la course </td>
+            <td>int</td>
+            <td></td>
+            <td></td>
+        </tr>   
+        <tr>
+            <td>cou_hre</td>
+            <td> heure de depart de la course</td>
+            <td>time</td>
+            <td></td>
+            <td></td>
+        </tr> 
+          <tr>
+            <td>cou_nom</td>
+            <td>nom de la course </td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr> 
+        <tr>
+            <td>cou_typ</td>
+            <td>type de la course </td>
+            <td>set</td>
+            <td></td>
+            <td></td>
+        </tr>
+         <tr>
+            <td>joc_nom</td>
+            <td>nom du jocker ou driver </td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr>
+         <tr>
+            <td>num_cou_che</td>
+            <td>numero de course du cheval </td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr> 
+        <tr>
+            <td>pla_cor</td>
+            <td>place a la corde </td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>han</td>
+            <td>handicap (poids ou distance) </td>
+            <td>varchard(255)</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>gai_che</td>
+            <td>gains du cheval </td>
+            <td>int</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>pro_cou</td>
+            <td> couleur du proprietaire</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tbody>
+        </table>
+        </body>
+        </html>
