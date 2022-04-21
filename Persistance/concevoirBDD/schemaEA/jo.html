@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Schéma entité association 4</title>
+</head>
+
+<body>
+<h1> Les jeux olympiques</h1>
+<h3>Contexte</h3>
+<p>
+    Les Organisateurs des jeux Olympique d'hivers à Vancouver (2010) souhaitent s'équiper d'un
+    système informatique capable de gérer les épreuves, les concurrents et les Responsables.
+    Les personnes responsables des jeux se sont organisées de façon hiérarchique. Au sommet de
+    la pyramide se trouve un "Responsable général" dont dépendent des responsables de
+    discipline (Ski alpin, patinage, Bobsleigh, ...). De ces derniers dépendent à leur tour des
+    responsables moins importants, et ainsi de suite jusqu'à la personne de base.
+    Tout le monde aura un rôle dans l'organisation des jeux : "juge a l'arrivée, chronométreur,
+    juge de parcours. " et pour des raisons pratiques sera identifié par un numéro matricule. On
+    gèrera aussi leur nom et leurs coordonnées.
+    Chaque épreuve aura lieu dans une des stations de la région. Une même station dont on
+    connaît le nom et l'altitude pourra accueillir plusieurs épreuves mais a des jours différents et
+    du même type. A l'organisation d'une épreuve seront affectés plusieurs responsables.
+    Les responsables peuvent s'occuper de plusieurs épreuves. Ces dernières ont un Code
+    alphabétique. Chaque épreuve fait partie d'une discipline et d'une seule. Elles se déroulent
+    quelquefois en plusieurs manches.
+    Chaque concurrent représente un Pays et participera à une ou plusie urs épreuves. Il peut
+    pratiquer plusieurs disciplines. Dans les manches d'une épreuve il portera toujours le même
+    numéro de dossard mais en changera pour une autre épreuve.
+    A l'issue de chaque manche, le système devra enregistrer, selon l’épreuve, le temps (Ski, ...)
+    ou le nombre de points de chaque concurrent. A la fin de l’épreuve, il mémorisera la place et
+    éventuellement la médaille (OR, ARGENT, BRONSE) de chacun des athlètes.
+    On distinguera les concurrents hommes des femmes car les épreuves ne sont pas mixtes. Ils
+    seront identifiés par un numéro d'inscription aux jeux et auront un nom , une date de
+    naissance et des coordonnées.
+    Tous les pays sont codifiés (FR , GB , USA ...).</p>
+    <h3>Travail à faire </h3>
+    <p>Concevoir et réaliser le Modèle conceptuel des données à l’aide de votre outil de conception
+        préféré</p>
+
+        <p>On commence par etablir le dictionnaire de donnée</p>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Code</td>
+                    <td>Libellé</td>
+                    <td>Type</td>
+                    <td>Contraintes</td>
+                    <td>Règle de calcul</td>
+                <tr>
+                    <td>org_id</td>
+                    <td>identifiant du membre de l'organisation </td>
+                    <td>int</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>org_nom</td>
+                    <td>nom du membre de l'organisation</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>org_prenom</td>
+                    <td>prenom du membre de l'organisation</td>
+                    <td>varchar(255) </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+               <tr>
+                    <td>org_rol_hie</td>
+                    <td>role hierarchique du membre de l'organisation</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr> 
+                <tr>
+                    <td>org_mat</td>
+                    <td>numero de matricule du membre de l'organisation</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>org_tel</td>
+                    <td>numero de tel du membre de l'organisation</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>org_ema</td>
+                    <td>email du membre de l'organisation</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>org_adr</td>
+                    <td>adresse du membre de l'organisation</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>org_cp</td>
+                    <td>code postale du membre de l'organisation</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>org_vil</td>
+                    <td>ville du membre de l'organisation</td>
+                    <td>varchar</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>rol_epr</td>
+                    <td>role pendant l'epreuve du membre de l'organisation</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>rol_epr_id</td>
+                    <td>identifiant d'un role d'un membre de l'organisation</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>rol_epr_nom</td>
+                    <td>nom d'un role d'un membre de l'organisation </td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>rol_epr_spe</td>
+                    <td>specifités d'un role d'un membre de l'organisation</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>epr_id</td>
+                    <td>identifiant de l'epreuve</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>epr_nom</td>
+                    <td>nom de l'epreuve</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>epr_sta</td>
+                    <td>station ou se deroule l'epreuve</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>epr_org</td>
+                    <td>menbre de l'organisation gérant l'epreuve</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>epr_dis</td>
+                    <td>discipline de l'epreuve</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>epr_sta_dat</td>
+                    <td>jour de l'epreuve sur la station</td>
+                    <td>date</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>epr_hre</td>
+                    <td>heure de l'epreuve</td>
+                    <td>time</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>epr_nom_man</td>
+                    <td>nombre de manche dans l'epreuve</td>
+                    <td>int</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>epr_atl_res</td>
+                    <td>résultat d'un atlete a une epreuve</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>atl_med_id</td>
+                    <td>medailles recu gagné par un atlete</td>
+                    <td>int</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>med_id</td>
+                    <td>identifiant de la medailles</td>
+                    <td>int</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                 <tr>
+                    <td>med_nom</td>
+                    <td>nom de la medaille</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr> 
+                <tr>
+                    <td>sta_id/td>
+                    <td>identifiant de la station</td>
+                    <td>int</td>
+                    <td></td>
+                    <td></td>
+                </tr> 
+                <tr>
+                    <td>sta_nom</td>
+                    <td>nom de la station</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr> 
+                <tr>
+                    <td>sta_alt</td>
+                    <td>altitude de la station</td>
+                    <td>int</td>
+                    <td></td>
+                    <td></td>
+                </tr> 
+                <tr>
+                    <td>sta_epr_typ</td>
+                    <td>type d'epreuve possible sur la station</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                 <tr>
+                    <td>man_id</td>
+                    <td>identifiant de la manche</td>
+                    <td>int</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                 <tr>
+                    <td>man_atl_res</td>
+                    <td>resultat de l'atlete sur une manche</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr> 
+                <tr>
+                    <td>man_hre</td>
+                    <td>heure de la manche</td>
+                    <td>time</td>
+                    <td></td>
+                    <td></td>
+                </tr> 
+                <tr>
+                    <td>man_dat</td>
+                    <td>jour de la manche</td>
+                    <td>date</td>
+                    <td></td>
+                    <td></td>
+                </tr> 
+                <tr>
+                    <td>man_epr_atl_tps</td>
+                    <td>temps réalisés par l'atlete lors d'une manche d'epreuve</td>
+                    <td>int</td>
+                    <td></td>
+                    <td></td>
+                </tr> 
+                <tr>
+                    <td>man_epr_atl_pts</td>
+                    <td>points réalisés par l'atlete lors d'une manche d'epreuve</td>
+                    <td>int</td>
+                    <td></td>
+                    <td></td>
+                </tr> 
+                <tr>
+                    <td>nat_id</td>
+                    <td>identifiant d'une nationalitée</td>
+                    <td>int</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                 <tr>
+                    <td>nat_lib</td>
+                    <td>libellé d'une nationalité</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr> 
+                <tr>
+                    <td>nat_med_nbe</td>
+                    <td>nombre de medaille gagnées par nationalité</td>
+                    <td>int</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                 <tr>
+                    <td>atl_id</td>
+                    <td>identifiant de l'atlete</td>
+                    <td>int</td>
+                    <td></td>
+                    <td></td>
+                </tr> 
+                <tr>
+                    <td>atl_nom</td>
+                    <td>nom de l'atlete</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                 <tr>
+                    <td>atl_pre</td>
+                    <td>prenom de l'atlete</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr> 
+                <tr>
+                    <td>atl_sex</td>
+                    <td>sexe de l'atlete</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr> 
+                <tr>
+                    <td>atl_num_ins</td>
+                    <td>numero d'inscription aux jeux de l'atlete</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr> 
+                <tr>
+                    <td>atl_nai</td>
+                    <td>date de naissance de l'atlete</td>
+                    <td>date</td>
+                    <td></td>
+                    <td></td>
+                </tr> 
+                <tr>
+                    <td>atl_adr</td>
+                    <td>adresse de l'atlete</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr> 
+                <tr>
+                    <td>atl_cp</td>
+                    <td>code postale de l'atlete</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr> 
+                <tr>
+                    <td>atl_vil</td>
+                    <td>ville de l'atlete</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr> 
+                <tr>
+                    <td>atl_tel</td>
+                    <td>numero de telephone de l'atlete</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr> 
+                <tr>
+                    <td>atl_ema</td>
+                    <td>adresse email de l'atlete</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr> 
+                <tr>
+                    <td>atl_dis</td>
+                    <td>discipline exercés par un atlete</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+                </tr> <tr>
+                    <td>atl_nat_id</td>
+                    <td>nationalités representé par un atlete</td>
+                    <td>int</td>
+                    <td></td>
+                    <td></td>
+                </tr> 
+                <tr>
+                    <td>atl_epr_dos</td>
+                    <td>numero de dossards d'un atlete lors d'une epreuve</td>
+                    <td>varchar(255)</td>
+                    <td></td>
+                    <td></td>
+               </tr>
+               <tr>
+                <td>dis_id</td>
+                <td>identifiant de la discipline</td>
+                <td>int</td>
+                <td></td>
+                <td></td>
+           </tr>
+           <tr>
+            <td>dis_nom</td>
+            <td>nom de la discipline</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+       </tr>
+       <tr>
+        <td>dis_ins</td>
+        <td>nombre d'inscrit dans la disipline</td>
+        <td>int</td>
+        <td></td>
+        <td></td>
+   </tr>
+           
+               </tbody>
+               </table>
+               </body>
+               </html>
