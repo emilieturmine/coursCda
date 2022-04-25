@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Crer la BDD</title>
+</head>
+
+<body>
+<h1> Le cas papyrus</h1>
+<h3>Le cahier des charges</h3>
+<p>Le souci majeur de M. PURCHASE, chef de la production informatique de la
+    société BIDOUILLE EXPRESS, est d'assurer la gestion et le suivi des produits
+    consommables tels que :
+    - papier listing en continu sous toutes ses formes,
+    - papier pré imprimé (commandes, factures, bulletins paie, ...)
+    - rubans pour imprimantes
+    - bandes magnétiques,
+    - disquettes,
+    - .....
+    Pour chacun de ces produits, il existe plusieurs fournisseurs possibles ayant déjà
+    livré la société ou avec lesquels M. PURCHASE est en contact De plus, de
+    nombreux représentants passent régulièrement vanter leurs produits et leurs
+    conditions de vente : ceci permet à M. PURCHASE de conserver leurs
+    coordonnées pour d'éventuelles futures commandes ou futur appels d'offre.
+    Un appel d'offre se matérialise par un envoi de courrier précisant la nature de la
+    demande (type de consommable, quantité prévisible de la commande, quantité
+    annuelle, délai de livraison courant, délai de livraison en cas de rupture de
+    stock, ...) aux fournisseurs susceptibles de faire une offre valable. En retour, les
+    fournisseurs intéressés par le marché renvoient leurs conditions de vente et M.
+    PURCHASE peut faire son choix.
+    La commande est envoyée au fournisseur pour l'achat de un ou plusieurs
+    produits pour une quantité donnée. Cette quantité peut être livrée en plusieurs
+    fois. Les seules informations mémorisées sur la livraison sont la date de dernière
+    livraison ainsi que la quantité livrée totale.</p>
+    <h3>LE DICTIONNAIRE DES DONNEES</h3>
+    <p>Les champs utilisés dans les différentes tables sont listés dans le tableau ci-
+        dessous
+        CODART Code produit char(4)
+        CONFOU Contact chez le fournisseur varchar(15)
+        DATCOM Date de commande datetime
+        DELLIV Délai de livraison smallint
+        DERLIV Date dernière livraison datetime
+        LIBART Libellé Produit varchar(30)
+        NUMCOM Numéro de commande int
+        NUMFOU N° de compte fournisseur tinyint
+        NUMLIG N° de ligne commande tinyint
+        NOMFOU Nom fournisseur varchar(25)
+        OBSCOM Observations varchar(50)
+        POSFOU Code postal fournisseur char(5)
+        PRIUNI Prix unitaire de vente decimal(9, 2)
+        PRIX1 Prix unitaire 1 decimal(9, 2)
+        PRIX2 Prix unitaire 2 decimal(9, 2)
+        PRIX3 Prix unitaire 3 decimal(9, 2)
+        QTE1 Borne quantité livraison 1 int
+        QTE2 Borne quantité livraison 2 int
+        QTE3 Borne quantité livraison 3 int
+        QTEANN Quantité annuelle int
+        QTECDE Quantité commandée int
+        QTELIV Quantité livrée int
+        RUEFOU Adresse fournisseur varchar(50)
+        SATISF Indice satisfaction tinyint
+        STKALE Stock d’alerte int
+        STKPHY Stock physique int
+        UNIMES Unité de mesure char(5)
+        VILFOU Ville fournisseur varchar(</p>
+        <h3>Le modele physique</h3>
+        <p>La base de données relationnelle PAPYRUS est constituée des relations suivantes:
+            PRODUIT (CODART, LIBART, STKALE, STKPHY, QTEANN, UNIMES)
+            ENTCOM (NUMCOM, OBSCOM, DATCOM, NUMFOU)
+            LIGCOM (NUMCOM, NUMLIG, CODART, QTECDE, PRIUNI, QTELIV, DERLIV)
+            FOURNIS (NUMFOU, NOMFOU, RUEFOU, POSFOU, VILFOU, CONFOU, SATISF)
+            VENTE (CODART, NUMFOU, DELLIV, QTE1, PRIX1, QTE2, PRIX2, QTE3, PRIX3)</p>
+<h3>DESCRIPTION DES CONTRAINTES</h3>
+<p>Table PRODUIT
+    o Tous les champs sont obligatoires
+    • Table ENTCOM
+    o Tous les champs sont obligatoires sauf les champ OBSERVATIONS et NUMFOU
+    o Le numéro de commande est un champ compteur auto incrémenté de 1
+    o La date de commande est par défaut la date du jour
+    o Le code fournisseur doit exister dans la table FOURNIS ou être nul
+    • Table LIGCOM
+    o Tous les champs sont obligatoires, sauf la quantité livrée
+    o Le numéro de commande doit exister dans la table ENTCOM
+    o Le code produit doit exister dans la table PRODUIT
+    • Table FOURNIS
+    o Tous les champs sont obligatoires, sauf SATISF
+    o Le code postal est constitué de 5 chiffres
+    o L’indice de satisfaction est compris dans une échelle de 1 à 10
+    • Table VENTE
+    o Tous les champs sont obligatoires sauf QTE2, PRIX2 et QTE3, PRIX3
+    o Le code produit doit exister dans la table PRODUIT
+    o Le code fournisseur doit exister dans la table FOURNIS</p>
+    <h3>Travail a effectuer</h3>
+    <h4>Implementer la base</h4>
+    <p>Certaines tâches peuvent être réalisées au moyen du langage LDD, mais aussi
+        grâce aux assistants graphiques : testez les 2 manières de faire.
+        En utilisant MariaDB et HeidiSQL :</p>
+        <p>1) Créer la base de données PAPYRUS avec les paramètres par défaut.</p>
+
+<cf papyrus.sql>
+
+       <p> 2) Faites un inventaire des contraintes à implémenter par type de contraintes et
+        compléter la base de données.</p>
+        Pour les contraintes de clé étrangères, réfléchissez au cas par cas aux actions à
+        entreprendre en cas de suppression ou de mise à jour.
+       <p> 3) Créez un index sur la colonne NUMFOU de la table ENTCOM.</p>
+       <P>CREATE INDEX NUMFOU_INDEX ON ENTCOM(NUMFOU);</P>
+       <H3>Le script</H3>
+       <P>Pour générer le script de la base, clic droit sur la base concernée, sélectionner
+        Exporter la base de données en SQL.
+        Conservez les valeurs par défaut et exportez votre base, puis testez le résultat.</P>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Crer la BDD</title>
+</head>
+
+<body>
+<h1> TP02</h1>
+<h3>Objectif :</h3>
+<p>Créer une Base De Données Relationnelle propriétaire à l’aide du
+    langage SQL.</p>
+    <h3>But de la réalisation :</h3>
+    <p>Créer la Base De Données à l’aide du langage SQL de description de
+        données (Data Description Language)</p>
+        <h3>Techniques abordées:</h3>
+        <p>Démarrer l’analyseur de requêtes SQL
+             Utiliser l’aide en ligne de MariaDB
+             A l’aide de l’éditeur, écrire un script SQL pour :
+            Créer une base de données : CREATE DATABASE
+            Créer des tables : CREATE TABLE
+            Ajouter des contraintes de clé primaire : ALTER TABLE
+            Ajouter des contraintes de clé étrangère : ALTER TABLE
+            Créer des index de clé primaire : CREATE INDEX
+             Interpréter des éventuels messages d’erreur
+             En cas de création erronée de table, écrire le script pour :
+            Modifier la structure d’une table : ALTER TABLE
+            Supprimer une table : DROP TABLE
+            Supprimer un index : DROP INDEX
+
+        </p>
+        <h3>Travail à réaliser:</h3>
+        <p>Créez le script de création de la base de données correspondant au modèle
+            suivant :</p>
+          <p> 1) Renommez les attributs des différentes tables pour obtenir un système de
+codification uniforme.</p>
+<table>
+    <tbody>
+        <tr>
+            <td>Code</td>
+            <td>Libellé</td>
+            <td>Type</td>
+            <td>Contraintes</td>
+            <td>Règle de calcul</td>
+        <tr>
+            <td>hot_cap</td>
+            <td>capacité de l'hotel</td>
+            <td>int </td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>hot_cat</td>
+            <td>categorie de l'hotel</td>
+            <td>varchar(255) </td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>hot_nom</td>
+            <td>nom de l'hotel</td>
+            <td>varchar(255) </td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>hot_adr</td>
+            <td>adresse de l'hotel</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>hot_num</td>
+            <td>numero de l'hotel</td>
+            <td>int  auto increment</td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>sta_num</td>
+            <td>num de la station</td>
+            <td>int </td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>sta_nom</td>
+            <td>nom de la station</td>
+            <td>varchar(255) </td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>cha_cap</td>
+            <td>capacité de la chambre</td>
+            <td>int </td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>cha_deg_con</td>
+            <td>degré confort de la chambre</td>
+            <td>varchar(255) </td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>cha_exp</td>
+            <td>exposition de la chambre</td>
+            <td>varchar(255) </td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>cha_typ</td>
+            <td>type de chambre</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>cha_num</td>
+            <td>numero de chambre</td>
+            <td>int </td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>res_dat_deb</td>
+            <td>date de debut de la location</td>
+            <td>date </td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>res_dat_fin</td>
+            <td>date de fin de la location</td>
+            <td>date </td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>res_dat</td>
+            <td>Date de la reservation de l'hotel</td>
+            <td>date </td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>res_mon_arr</td>
+            <td>montant des arrhes</td>
+            <td>decimal(9.2) </td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>res_prx_tot</td>
+            <td>Prix total de la reservation</td>
+            <td>decimal(9.2) </td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>cli_num</td>
+            <td>numero du client</td>
+            <td>int </td>
+            <td>auto increment</td>
+            <td></td>
+        </tr> <tr>
+            <td>cli_nom</td>
+            <td>nom du client</td>
+            <td>varchar(255) </td>
+            <td></td>
+            <td></td>
+        </tr>v <tr>
+            <td>cli_pre</td>
+            <td>prenom du client</td>
+            <td>varchar(255) </td>
+            <td></td>
+            <td></td>
+        </tr>v <tr>
+            <td>cli_adr</td>
+            <td>adresse_client</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr> 
+        </tr>
+        </tbody>
+        </table>
+<p>2) Lister et commenter les différentes contraintes d’intégrité à respecter</p>
+<p>NOT NULL indique que la colonne n'accepte pas les valeurs NULL</p>
+<p>Les contraintes CHECK assurent l'intégrité du domaine en limitant les
+valeurs placées dans une colonne.</p>
+<p>Les contraintes PRIMARY KEY identifient une colonne ou un ensemble
+de colonnes dont les valeurs identifient de manière unique chaque ligne
+d'une table.</p>
+<p>Les contraintes UNIQUE garantissent le caractère unique des valeurs
+dans un ensemble de colonnes</p>
+<p>Les contraintes FOREIGN KEY identifient les relations entre les tables.</p>
+<p>3) Définir les clés primaires et les clés étrangères sur les différentes tables.</p>
+<p>Pour la table "Station "la clé primaire est "sta_num",pas de clés etrangere.</p>
+<p>Pour la table "Hotel" la clé primaire est "hot_num", il y a "sta_num" en clé etrangeres</p>
+<p>Pour la table "Chambre" la clé primaire est "cha_num", il y a "hot_num" en clé etrangeres</p>
+<p>Pour la table "Client"la clé primaire est "cli_num",pas de clés etrangere.</p>
+<p>Pour la table "Reservation",on retrouve "cha_num" et "cli_num" en clé secondaire,elles composent ensemble la clé primaire de la table</p>
+<p>4) Implémenter (créez le script) les différentes tables sous MariaDB.</p>
+<p>cf hotel.sql</p>

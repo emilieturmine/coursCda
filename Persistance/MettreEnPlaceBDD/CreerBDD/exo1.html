@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Crer la BDD</title>
+</head>
+
+<body>
+<h1> exo1</h1>
+<h3>But de la réalisation:</h3>
+<p>Créer la Base De Données à l’aide du langage SQL de description de données (Data
+    Description Language</p>
+    <h3>Techniques abordées : </h3>
+    <p>Démarrer l’analyseur de requêtes SQL
+         Utiliser l’aide en ligne de MariaDB
+         A l’aide de l’éditeur, écrire un script SQL pour :
+        o Créer une base de données : CREATE DATABASE
+        o Créer des tables : CREATE TABLE
+        o Créer des clés primaires et étrangères :
+         Interpréter des éventuels messages d’erreur</p>
+        <h3>Travail à réaliser:</h3>
+        <p>1) A partir du MPD ci-dessus définissez le dictionnaire des données (système de
+            codification, type de données) pour identifier le type de chaque attribut.</p>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Code</td>
+                        <td>Libellé</td>
+                        <td>Type</td>
+                        <td>Contraintes</td>
+                        <td>Règle de calcul</td>
+                    <tr>
+                        <td>per_num</td>
+                        <td>numéro de la personne</td>
+                        <td>int </td>
+                        <td>auto-increment</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>per_nom</td>
+                        <td>nom de la personne</td>
+                        <td>varchar(255)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>                    <tr>
+                        <td>per_prenom</td>
+                        <td>prenom de la personne</td>
+                        <td>varchar(255)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>                    <tr>
+                        <td>per_adresse</td>
+                        <td>adresse de la personne</td>
+                        <td>varchar(255)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>                    <tr>
+                        <td>per_ville</td>
+                        <td>ville de la personne</td>
+                        <td>varchar(255)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>                    <tr>
+                        <td>gro_num</td>
+                        <td>numero du groupe</td>
+                        <td>int</td>
+                        <td>auto increment</td>
+                        <td></td>
+                    </tr>                    <tr>
+                        <td>gro_libelle</td>
+                        <td>libelle du groupe</td>
+                        <td>varchar(255)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>             </tr>
+                    </tbody>
+                    </table>
+                    
+
+            <p>2) Repérez les clés primaires et les clés étrangères sur les différentes tables.</p>
+<p>Pour la table "Personne" on retrouve "per_num" en clé primaire , pas de clé étrangere</p>
+<p>Pour la table "Groupe" , on retrouve "gro_num" en clé primaire </p>
+<p>Pour la table Appartient créer lors du passage du modele entités association au mdp, on a "per_num" et "gro_num" toutes cles etrangeres issu des tables "Personne" et "Groupe" qui ENSEMBLE forme la clés primaire de la table.</p>
+
+
+
+           <p> 3) Codez en SQL les trois tables, votre script doit s'exécuter sans erreur.</p>
+
+           CREATE DATABASE exo1CBDD;
+           USE exo1CBDD;
+
+           CREATE TABLE Personne( per_num INT AUTO_INCREMENT NOT NULL, per_nom varchar(255), per_prenom varchar(255), per_adresse varchar(255), per_ville varchar(255), PRIMARY KEY (per_num) ) ;
+           CREATE TABLE Groupe( gro_num INT AUTO_INCREMENT NOT NULL, gro_libelle varchar(255), PRIMARY KEY (gro_num) );
+           CREATE TABLE Appartient ( per_num int, gro_num int, PRIMARY KEY(per_num,gro_num), FOREIGN KEY (per_num) REFERENCES Personne(per_num), FOREIGN KEY (gro_num) REFERENCES Groupe(gro_num) );
