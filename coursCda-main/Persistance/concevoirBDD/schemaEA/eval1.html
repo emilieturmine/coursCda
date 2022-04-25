@@ -1,0 +1,332 @@
+<!--reste a faire : demander avis + mettre en correlation attribut mcd et dico-->
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Schéma entité association 3</title>
+</head>
+
+<body>
+    <h1>Domaine de Gestion des emprunts</h1>
+    <h3>Travail à réaliser :</h3>
+    <p>Réaliser le dictionnaire de données
+    Construire le modèle Entité – Association
+    Déterminer les identifiants
+    Déterminer les cardinalités des associations</p>
+
+<p>Lors de l’abonnement d’une nouvelle personne, 
+la bibliothécaire établit une fiche contenant 
+le nom, le prénom, l’adresse, le numéro de 
+téléphone et la date du jour. Cette fiche est
+ ensuite classée dans un casier dans l’ordre 
+ alphabétique des noms.
+
+Lors de la réception de nouveaux livres que la 
+bibliothécaire a commandés, celle-ci établit une
+fiche pour chaque livre où elle indique le titre
+du livre, l’auteur, l’éditeur ainsi qu’un 
+numéro qu’elle incrémente de un à chaque
+nouveau livre. Elle recouvre ensuite le 
+livre d’une feuille plastique transparente
+pour le protéger sur laquelle elle colle une
+étiquette avec le numéro de livre ainsi qu’une 
+pastille de couleur correspondant au thème du 
+livre (les rayons étant organisés par thème).
+Elle y insère la fiche et dépose le livre dans 
+un panier des livres à ranger. Elle note également
+dans un cahier les informations du nouveau livre 
+qui lui serviront entre autre à effectuer son 
+inventaire annuel.
+            
+Lorsqu’un abonné emprunte un livre, la 
+bibliothécaire inscrit sur sa fiche les 
+coordonnées du livre emprunté ainsi que la date 
+d’emprunt. Elle récupère également la fiche du 
+livre où elle inscrit les coordonnées de 
+l’emprunteur et la date d’emprunt et qu’elle
+classe dans un casier des livres empruntés dans 
+l’ordre des numéros de livre.
+Un abonné ne peut emprunter qu’un livre à la fois
+et pour une durée maximum de deux semaines.
+A chaque retour, la bibliothécaire inscrit sur la 
+fiche de l’abonné la date du retour, ainsi que sur 
+la fiche du livre qu’elle replace dans la 
+couverture plastique du livre. Elle pose le livre 
+dans un bac des livres à ranger.
+Tous les samedis, la bibliothécaire consulte le 
+casier des livres empruntés et repère les emprunts 
+de plus de deux semaines. Elle envoie alors un 
+courrier de relance et inscrit sur la fiche de 
+l’abonné la date de relance.
+Au bout de trois relances, un abonné ne peut plus 
+emprunter de livres.
+Lorsqu’un livre est détérioré ou a disparu 
+(suite à inventaire) ou n’est plus rendu, 
+la bibliothécaire inscrit une date de mise au 
+rebut dans le cahier contenant toutes les 
+informations sur les livres.</p>
+            <h3>Volumes et fréquences :</h3>
+<p>1.000 abonnés
+   5.000 livres
+   10 relances par semaine
+   20 nouveaux abonnés par mois
+   500 retours/emprunts par semaines
+   50 nouveaux livres par mois
+   100 rebuts par an
+   20 thèmes</p>
+                <h3>Objectifs :</h3>
+<p>La bibliothécaire souhaiterait gagner du temps 
+dans l’enregistrement des emprunts et des retours, 
+ainsi que dans la confection des relances pour 
+offrir une plus large amplitude d’ouverture de sa 
+bibliothèque.
+De plus, elle souhaiterait mettre à la disposition 
+des abonnés un système de consultation sur thème, 
+auteur, éditeur et date d’édition.
+Des statistiques de fréquence d’emprunt par auteur 
+et livre, lui rendraient service dans sa 
+détermination d’achat de nouveaux livres.</p>
+
+
+<p>On commence par faire un dictionnaire de donnée:</p>
+<table>
+    <tbody>
+        <tr>
+            <td>Code</td>
+            <td>Libellé</td>
+            <td>Type</td>
+            <td>Contraintes</td>
+            <td>Règle de calcul</td>
+       
+            <tr>
+                <td>abo_id</td>
+                <td>identifiant abonné à la bibliotheque</td>
+                <td>int</td>
+                <td></td>
+                <td></td>
+            </tr>
+             <tr>
+                <td>abo_nom</td>
+                <td>nom de l'abonné</td>
+                <td>varchar(255)</td>
+                <td></td>
+                <td></td>
+            </tr> 
+            <tr>
+                <td>abo_pre</td>
+                <td>prénom de l'abonné</td>
+                <td>varchar(255)</td>
+                <td></td>
+                <td></td>
+            </tr> 
+            <tr>
+                <td>abo_adr</td>
+                <td>adresse de l'abonné</td>
+                <td>varchar(255)</td>
+                <td></td>
+                <td></td>
+            </tr> 
+            <tr>
+                <td>abo_tel</td>
+                <td>numero de tel de l'abonné</td>
+                <td>varchar(255)</td>
+                <td></td>
+                <td></td>
+            </tr>
+             <tr>
+                <td>abo_ins</td>
+                <td>date d'inscription de l'abonné</td>
+                <td>date</td>
+                <td></td>
+                <td></td>
+            </tr> 
+            <tr>
+                <td>liv_id</td>
+                <td>identifiant du livre</td>
+                <td>int</td>
+                <td></td>
+                <td></td>
+            </tr>
+             <tr>
+                <td>liv_tit</td>
+                <td>titre du livre</td>
+                <td>varchar(255)</td>
+                <td></td>
+                <td></td>
+            </tr>
+             
+             <tr>
+                <td>liv_edi</td>
+                <td>editeur du livre</td>
+                <td>varchar(255)</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>liv_dat_edi</td>
+                <td>date d'edition du livre</td>
+                <td>date</td>
+                <td></td>
+                <td></td>
+            </tr>
+             <tr>
+                <td>the_id</td>
+                <td>identifiant du theme </td>
+                <td>int</td>
+                <td></td>
+                <td></td>
+            </tr> 
+            <tr>
+                <td>the_lib</td>
+                <td>libellé du theme</td>
+                <td>varchar(255)</td>
+                <td></td>
+                <td></td>
+            </tr>
+             <tr>
+                <td>the_cou</td>
+                <td>couleur du theme</td>
+                <td>varchar(255)</td>
+                <td></td>
+                <td></td>
+            </tr> 
+            <tr>
+                <td>the_ray</td>
+                <td>numero de rayon</td>
+                <td>int</td>
+                <td></td>
+                <td></td>
+            </tr> 
+            <tr>
+                <td>emp_dat</td>
+                <td>date d'emprunt du livre par un abonné</td>
+                <td>date</td>
+                <td></td>
+                <td></td>
+            </tr> 
+            <tr>
+                <td>emp_dat_ret_max</td>
+                <td>date de retour maximum du livre</td>
+                <td>date</td>
+                <td></td>
+                <td></td>
+            </tr>
+             <tr>
+                <td>emp_ret</td>
+                <td>date de retour du livre</td>
+                <td>date</td>
+                <td></td>
+                <td></td>
+            </tr> 
+            <tr>
+                <td>rel_pre</td>
+                <td>date de la premiere relance</td>
+                <td>date</td>
+                <td></td>
+                <td></td>
+            </tr>
+             <tr>
+                <td>rel_deu</td>
+                <td>date de la deuxieme relance</td>
+                <td>date</td>
+                <td></td>
+                <td></td>
+            </tr> 
+            <tr>
+                <td>rel_tro</td>
+                <td>date de la troisieme relance</td>
+                <td>date</td>
+                <td></td>
+                <td></td>
+            </tr> 
+            <tr>
+                <td>bib_id</td>
+                <td>identifiant de la bibliotecaire</td>
+                <td>int</td>
+                <td></td>
+                <td></td>
+            </tr> 
+            <tr>
+                <td>bib_nom</td>
+                <td>nom de la bibliotecaire</td>
+                <td>varchar(255)</td>
+                <td></td>
+                <td></td>
+            </tr> 
+            <tr>
+                <td>bib_pre</td>
+                <td>prenom de la bibliotecaire</td>
+                <td>varchar(255)</td>
+                <td></td>
+                <td></td>
+            </tr> 
+            <tr>
+                <td>bib_adr</td>
+                <td>adresse de la bibliotecaire</td>
+                <td>varchar(255)</td>
+                <td></td>
+                <td></td>
+            </tr> 
+            <tr>
+                <td>bib_tel</td>
+                <td>numero de ttelephone de la bibliotecaire</td>
+                <td>varchar(255)</td>
+                <td></td>
+                <td></td>
+            </tr> 
+            <tr>
+                <td>bib_ema</td>
+                <td>email de la bibliotecaire</td>
+                <td>varchar(255)</td>
+                <td></td>
+                <td></td>
+            </tr> 
+            
+             <tr>
+                <td>reb_dat</td>
+                <td>date de mise au rebus du livre </td>
+                <td>date</td>
+                <td></td>
+                <td></td>
+            </tr>
+             <tr>
+                <td>reb_rai</td>
+                <td>raison de la mise au rebut d'un livre</td>
+                <td>varchar(255)</td>
+                <td></td>
+                <td></td>
+            </tr> 
+            <tr>
+                <td>aut_id</td>
+                <td>identifiant de l'auteur/autrice</td>
+                <td>int</td>
+                <td></td>
+                <td></td>
+            </tr> <tr>
+                <td>aut_nom</td>
+                <td> nom de l'auteur/autrice</td>
+                <td>varchard(255)</td>
+                <td></td>
+                <td></td>
+            </tr> 
+            <tr>
+                <td>aut_pre</td>
+                <td>prenom de l'auteur/autrice</td>
+                <td>varchard(255)</td>
+                <td></td>
+                <td></td>
+            </tr> 
+            <tr>
+                <td>aut_tem</td>
+                <td>temporalité de l'auteur/autrice</td>
+                <td>varchard(255)</td>
+                <td></td>
+                <td></td>
+            </tr> 
+            </tr>
+            </tbody>
+            </table>
+            </body>
+            </html>

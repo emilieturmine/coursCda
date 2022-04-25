@@ -1,0 +1,354 @@
+<!--A revoir completement avec phpmyadmin,symfony et nouvelles connaissance-->
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>FilRouge</title>
+</head>
+
+<body>
+    <h1>Le dictionnaire de données</h1>
+    <h3>cahier des charges</h3>
+ 
+      <h4> Objectifs</h4>
+      <p>L’entreprise Village Green distribue du matériel musical. Elle a une activité de grossiste, c'est-à-dire de revente aux magasins spécialisés. Elle peut sous certaines conditions procéder à la vente aux particuliers et elle souhaiterait développer cette activité.
+
+L’entreprise Village Green souhaite faire évoluer son système de gestion des commandes et de facturation. Actuellement, l’organisation utilise un système qui ne donne pas entière satisfaction. L’informatisation de la totalité du processus depuis la mise à jour du catalogue, de la commande jusqu’au paiement, a pour objectif de fluidifier le workflow de l’entreprise.
+
+La société souhaite avoir un site d'e-commerce permettant aux clients de visualiser l'ensemble du catalogue et de passer des commandes en ligne.
+</p>
+<h4>L’existant</h4>
+<p>Les produits référencés sont achetés directement auprès des fournisseurs (constructeurs ou importateurs). Dans le catalogue de l'entreprise tous les produits sont organisés en Rubrique/SousRubrique. Chaque produit doit être décrit par un libellé court et un libellé long (description), une référence fournisseur, un prix d'achat, une photo.
+
+L'équipe qui gère les relations avec les fournisseurs tient à jour le catalogue. Elle met à jour le stock, valide ou pas la publication de nouveaux produits et désactive d'anciens produits. Elle gère aussi l'arborescence Rubrique/SousRubrique.
+
+Tous les prix sont notés hors taxes. Le prix de vente est calculé à partir du prix d'achat auquel on applique un coefficient en fonction de la catégorie du client (Particulier ou Professionnel). Les coefficients sont attribués aux clients au moment de leur création et peuvent être ajustés par le service commercial. Les clients particuliers ont tous le même coefficient.
+
+A chaque client est attribué un commercial. Un commercial spécifique s'occupe des clients particuliers
+
+Quand un client professionnel passe une commande, il peut être appliqué une réduction supplémentaire sur le total, cette réduction est négociée par le service commercial.
+
+Au moment de la commande, il faut prendre en compte l'adresse de livraison et l'adresse de facturation. Un bon de livraison et une facture doivent pouvoir être éditées. Pour les clients particuliers, un paiement à la commande est exigé. Pour les clients professionnels, le paiement se fait en différé (par virement ou par chèque). Dans les deux cas de figure, on notera l'information concernant le règlement.
+
+Chaque client se voit attribuer une référence qui servira à l'identifier lors des échanges avec les différents services de l'entreprise (après-vente, commercial, comptabilité)
+
+Une commande expédiée même partiellement fait l’objet d’une facturation de l’ensemble de la commande.
+
+Les commandes et les documents associés sont conservés pendant trois ans.
+</p>
+<h4>Attendus</h4>
+<p>Pour développer son système de vente, l'entreprise souhaiterait mettre en place un site web (e-commerce) accessible aux particuliers et aux professionnels. Cette solution doit offrir les services suivants:
+
+Consultation du catalogue
+Ajout/Suppression de produit dans le panier
+Inscription d'un nouvel utilisateur sur le site (pour les particuliers)
+Connexion/Deconnexion d'un utilisateur pour accéder à son profil
+Validation du panier pour créer une nouvelle commande ()
+Visualisation des anciennes commandes
+Le site doit bien évidement être lisible sur les principaux navigateurs et il doit s'adapter aux navigateurs mobiles.
+
+Pour son usage interne, l'entreprise souhaite s'équiper d'un logiciel de gestion commerciale. Ce logiciel sera déployé sur les postes informatiques de l'entreprise
+
+Un module de gestion des produits réservé au service de gestion des produits doit permettre :
+
+D’ajouter des produits
+D’en supprimer
+D’en modifier les caractéristiques (libellé, caractéristique, tarif)
+De modifier l'arborescence des catégories
+Un tableau de bord de gestion permettra d'afficher des indicateurs de performance
+
+Chiffre d'affaires mois par mois pour une année sélectionnée
+Chiffre d'affaires généré pour un fournisseur
+TOP 10 des produits les plus commandés pour une année sélectionnée (référence et nom du produit, quantité commandée, fournisseur)
+TOP 10 des produits les plus rémunérateurs pour une année sélectionnée (référence et nom du produit, marge, fournisseur)
+Top 10 des clients en nombre de commandes ou chiffre d'affaires
+Répartition du chiffre d'affaires par type de client
+Nombre de commandes en cours de livraison.
+L'entreprise souhaite proposer à ses clients particuliers une application mobile. Cette application doit permettre de:
+
+Consulter le catalogue (parcourir les rubriques et les produits)
+Se connecter pour consulter l'historique des commandes
+Consulter son profil
+    </p>
+    <p>On commence par rediger un dictionnaire de données:
+        <table>
+            <tbody>
+                <tr>
+                    <td>Code</td>
+                    <td>Libellé</td>
+                    <td>Type</td>
+                    <td>Contraintes</td>
+                    <td>Règle de calcul</td>
+               
+                    <tr>
+                        <td>fou_id</td>
+                        <td>identifiant du fournisseur</td>
+                        <td>int</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>fou_nom</td>
+                        <td>nom du fournisseur</td>
+                        <td>varchar(255)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>fou_adr</td>
+                        <td>adresse du fournisseur</td>
+                        <td>varchar(255)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>pro_id</td>
+                        <td>identifiant du produit</td>
+                        <td>int</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>pro_ref</td>
+                        <td>reference du produit</td>
+                        <td>varchar(255)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>pro_lib</td>
+                        <td>libelle du produit</td>
+                        <td>varchar(255)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>pro_des</td>
+                        <td>description du produit</td>
+                        <td>varchar(255)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>pro_prx_ach</td>
+                        <td>prix d'achat du produit</td>
+                        <td>decimal(6.2)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>pro_pho</td>
+                        <td>photo du produit</td>
+                        <td>varchar(255)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>pro_sto</td>
+                        <td>stock du produit</td>
+                        <td>int</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>cat_id</td>
+                        <td>identifiant de la categorie</td>
+                        <td>int</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>cat_nom</td>
+                        <td>nom de la categorie</td>
+                        <td>varchar(255)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>cat_par_id</td>
+                        <td>identifiant de la categorie parent</td>
+                        <td>int</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>dat_mod</td>
+                        <td>date de modification du produit</td>
+                        <td>date</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>uti_id</td>
+                        <td>identifiant de l'utilisateur</td>
+                        <td>int</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>uti_pse</td>
+                        <td>pseudo de l'utilisateur</td>
+                        <td>varchar(255)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>uti_mdp</td>
+                        <td>mot de passe de l'utilisateur</td>
+                        <td>varchar(255)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>uti_nom</td>
+                        <td>nom de l'utilisateur</td>
+                        <td>varchar(255)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>uti_pre</td>
+                        <td>prenom de l'utilisateur</td>
+                        <td>varchar(255)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>uti_adr</td>
+                        <td>adresse de l'utilisateur</td>
+                        <td>varchar(255)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>uti_ema</td>
+                        <td>email de l'utilisateur</td>
+                        <td>varchar(255)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>uti_coe</td>
+                        <td>coeficient de l'utilisateur</td>
+                        <td>int</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>rol_id</td>
+                        <td>identifiant du role de l'utilisateur</td>
+                        <td>int</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>rol_lib</td>
+                        <td>libelle du role</td>
+                        <td>varchar(255)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>pro_qté</td>
+                        <td>quantité commandés de produit</td>
+                        <td>int</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>com_id</td>
+                        <td>identifiant de la commande</td>
+                        <td>int</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>com_adr_liv</td>
+                        <td>adresse de livraison de la commande</td>
+                        <td>varchar(255)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>com_dat</td>
+                        <td>date de la commande</td>
+                        <td>date</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>com_bon</td>
+                        <td>bon de commande</td>
+                        <td>varchar(255)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>com_sta</td>
+                        <td>statut de la commande</td>
+                        <td>varchar(255)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>fac_id</td>
+                        <td>identifiant de la facture</td>
+                        <td>int</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>fac_dat</td>
+                        <td>date de la facturation</td>
+                        <td>date</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>fac_doc</td>
+                        <td>document de facture</td>
+                        <td>varchar(255)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tr>
+                    </tbody>
+                    </table>
+                    </p>
+                    </body>
+                    </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </p>

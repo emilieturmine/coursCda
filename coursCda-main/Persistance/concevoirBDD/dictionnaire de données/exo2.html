@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>dictionnaire de données</title>
+</head>
+
+<body>
+    <h1>Exo2</h1>
+    <p> Contexte
+        Nous proposons de recenser les informations nécessaires à la réalisation d'un
+        système de gestion d'inscription de stagiaires à des actions de formations.
+        Dans un premier temps, nous souhaitons connaitre les stagiaires :
+        Chaque stagiaire possède un numéro d'inscription.
+        Il est identifié pas son état civil (nom, prénom, ...)
+        On souhaite conserver l'historique du suivi des formations.
+        Les formations sont identifiées par un numéro national et un intitulé.
+        Une formation peut viser l'obtention d'un titre professionnel dont on doit spécifier le
+        niveau.
+        La durée d'une formation est la même pour tous les stagiaires, la date de fin
+        dépendant de la date de début.
+        Travail à réaliser :
+        1. Réaliser le dictionnaire des données (n'oubliez pas de mentionner le type)
+        2. Comparer votre travail avec la production des autres stagiaires.
+</p>
+
+
+    <table>
+        <tbody>
+            <tr>
+                <td>Code</td>
+                <td>Libellé</td>
+                <td>Type</td>
+                <td>Contraintes</td>
+                <td>Règle de calcul</td>
+            <tr>
+                <td>id_sta</td>
+                <td> Identifiant du stagiaire</td>
+                <td>Int</td>
+                <td>>0</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>nom_sta</td>
+                <td> nom du stagiaire</td>
+                <td>VARCHAR(50)</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>pre_sta</td>
+                <td>Prénom du stagiaire </td>
+                <td>VARCHAR (50)</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>dat_nai_sta</td>
+                <td> Date de naissance du stagiaire</td>
+                <td>date</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>cod_sex</td>
+                <td>code sexe stagiaire </td>
+                <td>Varchar(1)</td>
+                <td>H ou F</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>lib_sex_sta</td>
+                <td>libelle sexe stagiaire </td>
+                <td>varchar(7)</td>
+                <td>Homme ou Femme</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>num_ins_sta</td>
+                <td>Numéro d'inscription du stagiaire </td>
+                <td>Int</td>
+                <td>>0</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>id_for</td>
+                <td>Identifiant formation</td>
+                <td>INT </td>
+                <td>>0</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>lib_for</td>
+                <td>Libellé de la formation</td>
+                <td>VARCHAR (50)</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>num_for</td>
+                <td> Numéro national de la formation</td>
+                <td>Int</td>
+                <td>>0</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>dur_for</td>
+                <td> Durée formation</td>
+                <td>int</td>
+                <td>>0</td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td>dat_deb_for</td>
+                <td> Date entrée en formation</td>
+                <td>Date</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>dat_fin_for</td>
+                <td> Date Fin de formation</td>
+                <td>Date</td>
+                <td></td>
+                <td>($dat_deb_for + $dur_for)</td>
+            </tr>
+            <tr>
+                <td>tit_pro_for</td>
+                <td> Titre professionel</td>
+                <td>Boleen</td>
+                <td>oui,non</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>id_niv_tit_pro</td>
+                <td> Identifiant niveau de titre professionnel</td>
+                <td>INT</td>
+                <td> >0 if $TitProForm=oui</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>lib_niv_tit_pro</td>
+                <td> Libellé niveau titre professionel </td>
+                <td>VARCHAR(10)</td>
+                <td></td>
+                <td></td>
+            </tr>
+            
+
+        </tbody>
+    </table>
+
+</body>
+
+</html>

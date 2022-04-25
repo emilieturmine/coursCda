@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Evaluation</title>
+</head>
+
+<body>
+    <h1>Evaluation 2</h1>
+    
+    <p>A partir du schéma conceptuel ci-dessus, à l'aide d'un outil de modélisation:</p>
+
+        <h3>Construisez le modèle physique</h3>
+
+        <p>voir looping</p>
+
+       <h3> pour chaque association, expliquez la transformation du MCD en MPD</h3>
+
+       <p>Pour l'association nommée "passe" entre les entités "Client" et "Commande", puisque les cardinalités maximale sont 1 et n ,la transformation de l'association en MCD se fait donc par la suppression de l'association et l'ajout d'une clé étrangere "n_client" dans la table "Commande" avec une flèche reliant la table "Client" pour indiquer l'origine de celle -çi. </p>
+       <p>Pour l'association nommée "SeComposeDe" entre les entités "Commande" et "Article" , puisque les cardinalités maximale sont n et n  ,la transformation de l'association en MCD se fait donc par la création d'une nouvelle table remplaçant l'association avec l'ajout de deux cles étrangeres "N_Commande" et "N_Article" issus respectivement des tables "Commande" et "Article" ( origine representé par une fleche).Ensemble ces deux clés étrangeres deviennent la clé primaire de cette nouveele table.</p>
+
+       <h3> Pour chaque table, expliquez (en justifiant) les champs qui servent de clés (primaires ou étrangères)</h3>
+     
+       <p>Pour la table "Client",on retrouve "N_Client" en clé primaire,Les noms et prénoms des clients pouvant facilement etre identique ont s'assurent avec un numero de pouvoir entrer ds la bdd tous les clients ,en effet une clé primaire doit obligatoirement etre unique.</p>
+      <p>Pour la table "Commande",on retrouve "N_Commande" en clé primaire pour la même raison que dans la table client ,on retrouve également "N_Cient" en clé secondaire ,elle permet de faire le lien entre les deux tables et represente du coup l'association ,l'action entre les deux tables</p>
+      <p>Pour la table "SeComposeDe",on retrouve "N_Commande" et "N_Article" en clé secondaire,elles composent ensemble la clé primaire de la table</p>
+      <p>Pour la table "Article",on retrouve "N_Article" en clé primaire,pour la même raison que pour les tables "Client" et "Commandes".</p>
+     
+       <h3> Générez le script de création de la base de données</h3>
+       <p>
+        CREATE DATABASE evaluation;
+        USE evaluation;   
+        
+        CREATE TABLE Client(
+        n_Client INT AUTO_INCREMENT NOT NULL,
+        NomClient VARCHAR(255),
+        PrenomClient VARCHAR(255),
+        PRIMARY KEY(n_Client)
+     );
+     
+     CREATE TABLE Commande(
+        N_Commande INT AUTO_INCREMENT NOT NULL,
+        DateCommande DATE,
+        MontantCommande CURRENCY,
+        n_Client INT NOT NULL,
+        PRIMARY KEY(N_Commande),
+        FOREIGN KEY(n_Client) REFERENCES Client(n_Client)
+     );
+     
+     CREATE TABLE Article(
+        N_Article INT AUTO_INCREMENT NOT NULL,
+        DesignationArticle VARCHAR(255),
+        PUArticle CURRENCY,
+        PRIMARY KEY(N_Article)
+     );
+     
+     CREATE TABLE Facture(
+        N_Commande INT,
+        N_Article INT,
+        Qte INT,
+        TauxTva DECIMAL(15,2),
+        PRIMARY KEY(N_Commande, N_Article),
+        FOREIGN KEY(N_Commande) REFERENCES Commande(N_Commande),
+        FOREIGN KEY(N_Article) REFERENCES Article(N_Article)
+     );
+     </p>
+     </body>
+     </html>

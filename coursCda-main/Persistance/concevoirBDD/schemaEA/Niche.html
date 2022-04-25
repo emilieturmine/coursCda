@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Schéma entité association 2</title>
+</head>
+
+<body>
+    <h1>Le cas Niche</h1>
+    <h3>Objectif : </h3>
+    <p>
+Dans le but de construire une base de données, la conception du modèle
+entité-association suivi du modèle logique de données est une étape se
+situant entre la « récolte » des informations constituant le dictionnaire de
+données et le modèle physique de données propre à un SGBD propriétaire.</p>
+<h3>
+But de la réalisation :
+</h3>
+<p>Réaliser un modèle entité-association (modèle conceptuel de données)</p>
+<h3>Techniques abordées :</h3>
+<p>Le modèle entité-association :
+• Rechercher les entités naturelles
+• Attacher les propriétés appartenant à ses entités
+• Déterminer les propriétés identifiantes
+• Relier les entités par des associations
+• Attacher les propriétés appartenant aux associations
+• Déterminer les cardinalités des associations</p>
+<h3>
+Travail à réaliser :</h3>
+<h5>
+Liste des propriétés :</h5>
+ Adresse du propriétaire (100)
+ Date d’achat (D)
+ Date de concours (D)
+ Date de décès du chien (D)
+ Date de naissance du chien (D)
+ Nom du chien (20)
+ Nom du propriétaire (30)
+ Numéro de matricule du chien (6)
+ Race (20)
+ Résultat du concours (2,0)
+ Sexe du chien (1)
+ Type de concours (30)
+ Ville de concours (30)
+<p>Il s’agit de construire un système perme ttant de connaître le cursus honorum de s
+chiens de race participant à des concours, ainsi que leur généalogie.</p>
+
+<p>On commence par établir un dictionnaire de donnée complet</p>
+<table>
+    <tbody>
+        <tr>
+            <td>Code</td>
+            <td>Libellé</td>
+            <td>Type</td>
+            <td>Contraintes</td>
+            <td>Règle de calcul</td>
+        <tr>
+            <td>pro_id</td>
+            <td> identifiant du propriétaire</td>
+            <td>int</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>pro_nom</td>
+            <td>nom du proprietaire </td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>pro_adr</td>
+            <td> adresse du propriétaire</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>chi_id</td>
+            <td>identifiant du chien </td>
+            <td>int</td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>chi_nom</td>
+            <td>nom du chien </td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>chi_rac</td>
+            <td>race du chien </td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>chi_mat</td>
+            <td> numero de matricule du chien</td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>chi_sex</td>
+            <td> sexe du chien</td>
+            <td>varchar(1)</td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>chi_nai</td>
+            <td> Date de naissance du chien</td>
+            <td>date</td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>chi_dec</td>
+            <td> date de deces du chien</td>
+            <td>date</td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>chi_ach</td>
+            <td> date achat du chien</td>
+            <td>date</td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>con_id</td>
+            <td> identifiant du concours</td>
+            <td>int</td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>con_dat</td>
+            <td> date du concour</td>
+            <td>date</td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>con_vil</td>
+            <td>ville du concour </td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>con_typ</td>
+            <td>type de concour </td>
+            <td>varchar(255)</td>
+            <td></td>
+            <td></td>
+        </tr> <tr>
+            <td>con_res</td>
+            <td> resultat du concour</td>
+            <td>int</td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tr></tbody>
+        </table>
+        </body>
+        </html>
