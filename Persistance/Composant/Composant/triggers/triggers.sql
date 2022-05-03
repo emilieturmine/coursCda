@@ -7,7 +7,7 @@ CREATE TRIGGER modif_reservation AFTER UPDATE ON reservation
     BEGIN
        
             SIGNAL SQLSTATE '40000' SET MESSAGE_TEXT = 'Un problème est survenu. Les modifications !';
-        END IF;
+       
 END;
 
 
@@ -17,9 +17,21 @@ END;
 CREATE TRIGGER insert_reservation AFTER INSERT ON reservation
     FOR EACH ROW
     BEGIN
-       insert into reservation (cha_num,cli_num,res_dat_deb,res_dat_fin)
+    insert into reservation (cha_num,cli_num,res_dat_deb,res_dat_fin)
+ IF count(res_id) <10 THEN
+       
             SIGNAL SQLSTATE '40000' SET MESSAGE_TEXT = 'Un problème est survenu. Les modifications !';
         END IF;
 END;
 --     insert_reservation2 : interdire les réservations si le client possède déjà 3 réservations.
+CREATE TRIGGER insert_reservation AFTER INSERT ON reservation
+    FOR EACH ROW
+    BEGIN
+    insert into reservation (cha_num,cli_num,res_dat_deb,res_dat_fin)
+ IF count(res_id) <10 THEN
+       
+            SIGNAL SQLSTATE '40000' SET MESSAGE_TEXT = 'Un problème est survenu. Les modifications !';
+        END IF;
+END;
+
 --     insert_chambre : lors d'une insertion, on calcule le total des capacités des chambres pour l'hôtel, si ce total est supérieur à 50, on interdit l'insertion de la chambre.
