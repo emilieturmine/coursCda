@@ -1,0 +1,78 @@
+1)Description :
+Ce cas d’utilisation permet de saisir les informations concernant une commande faite par un client.
+2) Flux d’évènements (Workflow):
+a. Conditions
+Le client est un client particulier,il realise lui mm la saisie de la commande.
+Le client doit déjà être répertorié.
+Il n'y as pas de rupture de stock
+b. Résultats
+Une commande client est enregistrée.
+Les informations concernant le client sont mises à jour.
+Le règlement est enregistré ,la facture éditée et un bon de livraison est mis en place
+
+3)Flot Nominal
+->le client s'identifie
+<- le systeme affiche la fiche client
+->le client demande l'acces au catalogue
+<-le systeme affiche le catalogue
+->le client choisit une categorie
+<-le systeme affiche la categorie choisit
+->le client choisit une sous categorie
+<-le systeme affiche la sous categorie choisit
+->le client choisit un produit
+<-le systeme affiche le produit choisit
+->le client souhaite mettre le produit dans le panier
+<->le systeme met le produit choisit dans le panier
+<-le systeme demande la quantité souhaitée 
+->le client saisit la quantitée souhaitée
+<->le systeme enregistre la quantité souhaitée
+<->le systeme calcul le montant du panier
+<-le systeme propose de finaliser la commande
+->le client valide le panier
+<-le systeme  demande l'adresse de facturation
+->le client saisie l'adresse de facturation
+<-le systeme  demande le mode de livraison
+->le client saisie le mode de livraison
+<-le systeme  demande l'adresse de livraison
+->le client saisie l'adresse de livraison
+<-le systeme  demande confirmation de la commande
+->le client confirme la commande
+<->le systeme calcule le montant finale de la commande
+<- le systeme demande le reglement de la commande
+->le client regle la commande
+<- le systeme confirme le reglement de la commande
+<->le systeme enregistre les informations de la commande
+<->le systeme edite une facture et un bon de livraison
+<->le systeme associe et archive les informations a la fiche client
+<->le systeme transfert le bon de livraison
+<-le systeme renvoit a la page d'acceuil
+
+Le cas d’utilisation prend fin.
+
+
+3)Flots alternatifs
+a. Le client n’est pas répertorié
+<-le systeme n'autorise pas la commande
+->le client demande a s'inscrire
+ Une fois l'inscription faite le cas d'utilisation peut reprendre
+
+ b. Les coordonnées du client sont erronées
+ Le système a détecté qu’une ou plusieurs informations saisies concernant le client sont absentes ou comportent des
+ erreurs :
+ <- Le système signale les informations en erreur.
+ -> Le client corrige les erreurs.
+ <-> Ceci se répète jusqu’à ce que le système ne détecte plus d’erreur. 
+
+ c. Il n’y a pas la référence en stock
+<-> Le système recherche le délai de livraison.
+<-> Si le délai est accepté par le client, le scénario normal reprend.
+<-> Sinon, il y a abandon de la procédure en cours.
+
+e. Le règlement ne peut pas être enregistré
+<-> Le cas d’utilisation prend fin.
+
+f. La prise de commande n’est pas confirmée
+<-> Le système annule le règlement s’il a été enregistré
+<-> Le cas d’utilisation prend fin.
+g. Abandon a tout moment du processus
+<-> Le cas d’utilisation prend fin.
