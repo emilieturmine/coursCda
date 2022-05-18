@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="50px" height="50px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
+<rect x="0.926" y="39.832" fill="#898989" width="45.202" height="0.708"/>
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="1976.6064" y1="-2569.8159" x2="1982.6313" y2="-2569.8159" gradientTransform="matrix(1 0 0 -1 -1967 -2546)">
+	<stop  offset="0" style="stop-color:#85BBE5"/>
+	<stop  offset="1" style="stop-color:#4E95D0"/>
+</linearGradient>
+<polygon fill="url(#SVGID_1_)" stroke="#4685C5" stroke-width="3" points="17.762,7.879 45.7,7.963 45.7,39.753 1.404,39.753 
+	1.359,7.963 "/>
+<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="1968.2031" y1="-2569.8154" x2="2012.8555" y2="-2569.8154" gradientTransform="matrix(1 0 0 -1 -1967 -2546)">
+	<stop  offset="0" style="stop-color:#F7F8F9"/>
+	<stop  offset="1" style="stop-color:#8CBFE7"/>
+</linearGradient>
+<polygon fill="url(#SVGID_2_)" stroke="#4685C5" stroke-width="2" points="34.736,7.775 23.826,7.775 23.826,17.663 19.086,22.765 
+	1.203,22.765 1.203,17.768 1.203,39.856 45.855,39.856 45.855,17.397 45.855,16.478 45.855,7.775 "/>
+<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="2635.874" y1="2026.7461" x2="2668.6152" y2="2026.7461" gradientTransform="matrix(-4.371139e-08 1 1 4.371139e-08 -1981.0459 -2618.1489)">
+	<stop  offset="0" style="stop-color:#4688C8"/>
+	<stop  offset="1" style="stop-color:#3874B6"/>
+</linearGradient>
+<rect x="45.229" y="7.445" fill="url(#SVGID_3_)" width="0.943" height="32.741"/>
+<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="1981.0908" y1="-2585.7432" x2="2013.1328" y2="-2585.7432" gradientTransform="matrix(1 0 0 -1 -1967 -2546)">
+	<stop  offset="0" style="stop-color:#4688C8"/>
+	<stop  offset="1" style="stop-color:#3874B6"/>
+</linearGradient>
+<rect x="14.091" y="39.283" fill="url(#SVGID_4_)" width="32.042" height="0.92"/>
+<g enable-background="new    ">
+	<path fill="#FFFFFF" d="M15.809,21.064h-7.04V9.936h1.479v9.814h5.561V21.064z"/>
+</g>
+</svg>

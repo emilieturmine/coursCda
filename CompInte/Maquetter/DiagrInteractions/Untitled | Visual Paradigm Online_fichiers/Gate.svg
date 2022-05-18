@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="50px" height="50px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
+<g>
+	<defs>
+		<rect id="SVGID_1_" width="50" height="50"/>
+	</defs>
+	<clipPath id="SVGID_2_">
+		<use xlink:href="#SVGID_1_"  overflow="visible"/>
+	</clipPath>
+	<rect x="33.999" y="41.239" clip-path="url(#SVGID_2_)" fill="#898989" width="48.737" height="0.764"/>
+	
+		<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="1167.3574" y1="1506.9697" x2="1173.8538" y2="1506.9697" gradientTransform="matrix(1 0 0 1 -1124 -1483)">
+		<stop  offset="0" style="stop-color:#85BBE5"/>
+		<stop  offset="1" style="stop-color:#4E95D0"/>
+	</linearGradient>
+	<polygon clip-path="url(#SVGID_2_)" fill="url(#SVGID_3_)" stroke="#4685C5" stroke-width="3" points="52.15,6.787 82.273,6.877 
+		82.273,41.152 34.514,41.152 34.465,6.877 	"/>
+	
+		<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="1158.4648" y1="1506.9795" x2="1206.2734" y2="1506.9795" gradientTransform="matrix(1 0 0 1 -1124 -1483)">
+		<stop  offset="0" style="stop-color:#F7F8F9"/>
+		<stop  offset="1" style="stop-color:#8CBFE7"/>
+	</linearGradient>
+	<polygon clip-path="url(#SVGID_2_)" fill="url(#SVGID_4_)" stroke="#4685C5" stroke-width="3" points="70.368,6.806 58.686,6.806 
+		58.686,10.661 53.611,16.124 34.465,16.124 34.465,17.504 34.465,41.152 82.273,41.152 82.273,17.108 82.273,16.124 82.273,6.806 	
+		"/>
+	
+		<linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="1172.1914" y1="1524.1426" x2="1206.7383" y2="1524.1426" gradientTransform="matrix(1 0 0 1 -1124 -1483)">
+		<stop  offset="0" style="stop-color:#4688C8"/>
+		<stop  offset="1" style="stop-color:#3874B6"/>
+	</linearGradient>
+	<rect x="48.191" y="40.646" clip-path="url(#SVGID_2_)" fill="url(#SVGID_5_)" width="34.547" height="0.992"/>
+	<g clip-path="url(#SVGID_2_)">
+		<polygon fill="#010101" points="24.965,23.658 30.539,19.319 24.965,14.969 22.854,13.324 22.854,10.623 28.426,14.969 34,19.319 
+			28.426,23.658 22.854,28.002 22.854,25.306 		"/>
+		<line fill="none" stroke="#010101" stroke-width="3" x1="30.717" y1="19.312" x2="0" y2="19.312"/>
+	</g>
+</g>
+</svg>
