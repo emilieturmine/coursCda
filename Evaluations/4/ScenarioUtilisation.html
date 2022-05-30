@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>scenario cas d'utilisation</title>
+</head>
+
+<body>
+
+
+
+<h1>1)Description :</h1>
+<p>Ce cas d’utilisation permet de saisir les informations concernant l'emprunt d'un document.
+</p>
+<h1>2) Flux d’évènements (Workflow):</h1>
+<h3>a. Conditions </h3>
+<p>L'usager est enregistré et a une carte de lecteur
+le document n'est ni un microfilm ni un journal,ni un livre special.
+Benevole employes ou bibliothecaire tout le personnel peut enregistrer l'emprunt
+</p>
+<h3>b. Résultats</h3>
+<p>une fiche d'emprunt est crée et associés à un usager et à un document
+Les informations de l'usager est mis à jour</p>
+<h1>3)Flot Nominal</h1>
+
+<p>L'employé verifie l'existence de la fiche de l'usager
+Le système lui affiche les informations connues sur l'usager.
+L'employé verifie la possibilité d'emprunt de l'usager
+si l'usager a la carte et peut emprunter:
+une fiche d'emprunt datée est crée et associés à l' usager et à un document
+une date de retour max est fixée.
+Le cas d’utilisation prend fin.</p>
+
+<h1>3)Flots alternatifs</h1>
+<h3>a. L' usager n’est pas répertorié</h3>
+<p>• L' employé suspend sa saisie de commande pour aller enregistrer l' usager.
+</p>
+<p>• Une fois chaque action menée, l’enregistrement de la commande peut reprendre.
+</p>
+<h3>b. L' usager a depassé sa capacitée d'emprunt</h3>
+<p>L' employé suspend sa saisie de commande et previent l'usager
+</p>
+<p>• L' employé suspend sa saisie de commande pour aller enregistrer l' usager.
+</p>
+<p>• Une fois chaque action menée, l’enregistrement de la commande peut reprendre.
+</p>
+  <h3>  c. Les coordonnées de l'usager sont erronées</h3>
+<p>Le système a détecté qu’une ou plusieurs informations saisies concernant l' usager sont absentes ou comportent des
+erreurs :
+</p>
+<p>• Le système signale les informations en erreur.</p>
+<p>• L' employé corrige les erreurs.</p>
+<p>• Ceci se répète jusqu’à ce que le système ne détecte plus d’erreur.
+</p>
+<h3>d. La référence du document saisie est incorrecte</h3>
+<p>• Le système affiche une liste de références existantes.</p>
+<p>• Le commercial sélectionne la référence voulue.</p>
+<p>• Le scénario normal reprend.</p>
+<h3>e. Abandon a tout moment du processus</h3>
+<p>• Le cas d’utilisation prend fin.</p>
+</body>
+</html>
